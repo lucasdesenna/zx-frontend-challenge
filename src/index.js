@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.styl';
+
+import './index.css';
+
+import Root from './Root';
 
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
+  <Root />,
   document.getElementById('root')
 );

@@ -15,17 +15,10 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        exclude: /node_modules/,
         loader: [
           'style-loader',
           'css-loader'
-        ]
-      },
-      {
-        test: /\.styl$/,
-        loader: [
-          'style-loader',
-          'css-loader',
-          'stylus-loader'
         ]
       }
     ]
@@ -33,7 +26,6 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: 'ZX Challenge',
       favicon: 'src/favicon.ico',
       template: 'src/index.html'
     })
