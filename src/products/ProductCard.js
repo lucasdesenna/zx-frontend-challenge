@@ -58,7 +58,7 @@ class ProductCard extends React.Component < Props > {
       boxSizing: 'border-box',
       flexGrow: 1,
       height: '48px',
-      lineHeight: '28px',
+      lineHeight: '32px',
       padding: '8px',
       textAlign: 'center',
     };
