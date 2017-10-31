@@ -10,11 +10,13 @@ type Props = {
 
 const AppFooter = (props: Props) => {
   const style = {
-    width: '100%',
     background: props.theme.darkBackgroundColor,
+    bottom: '0',
     boxSizing: 'border-box',
     color: props.theme.lightGrayColor,
     fontSize: '14px',
+    position: 'fixed',
+    width: '100%',
   };
 
   const contentStyle = {

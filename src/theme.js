@@ -3,7 +3,7 @@ const theme = {
     fontFamily: 'Roboto , sans-serif',
     primaryColor: '#7CB342',
     primaryTextColor: 'rgba(255, 255, 255, .87)',
-    primaryContrastColor: 'rgb(66, 66, 66)',
+    primaryContrastColor: '#fff',
     accentColor: 'rgb(255, 215, 64)',
     accentContrastColor: 'rgb(66, 66, 66)',
     primaryBackgroundColor: '#fff',

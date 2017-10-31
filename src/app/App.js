@@ -23,15 +23,16 @@ class App extends React.Component < Props > {
     const theme = this.props.theme;
 
     const style = {
+      alignItems: 'center',
       background: theme.primaryBackgroundColor,
       boxShadow: theme.boxShadow,
       boxSizing: 'border-box',
       display: 'flex',
       flexDirection: 'column',
-      alignItems: 'center',
       justifyContent: 'center',
       minHeight: '100vh',
-      width: '100vw'
+      padding: '64px 0 32px',
+      width: '100%',
     };
 
     const contentStyle = {

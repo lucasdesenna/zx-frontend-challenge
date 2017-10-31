@@ -17,6 +17,8 @@ const AppHeader = (props: Props) => {
     boxShadow: theme.boxShadow,
     boxSizing: 'border-box',
     color: theme.primaryTextColor,
+    position: 'fixed',
+    top: '0',
     width: '100%',
   };
 
@@ -28,6 +30,7 @@ const AppHeader = (props: Props) => {
 
   const titleStyle = {
     margin: 0,
+    textShadow: '0 -2px 0 rgba(0, 0, 0, .6)',
   };
 
   return (
