@@ -1,11 +1,13 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import {
+  Route
+} from 'react-router-dom';
 import App from './app/App';
-import AddressSearchfield from './address/AddressSearchfield';
+import Address from './address/Address';
 
 const Routes = (
   <App>
-    <Route path='/' component={AddressSearchfield} />
+    <Route path='/' component={Address} />
   </App>
 );
 

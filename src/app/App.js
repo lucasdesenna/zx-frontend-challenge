@@ -1,14 +1,21 @@
 import React from 'react';
-import { withTheme } from 'theming';
+import {
+  withTheme
+} from 'theming';
 
 import AppHeader from './AppHeader';
 import AppFooter from './AppFooter';
 
-class App extends React.Component {
-  constructor(props) {
+type Props = {
+  theme: any,
+  children: any,
+};
+
+class App extends React.Component < Props > {
+  constructor(props: Props) {
     super(props);
     this.state = {
-      appTitle: 'Amazing Beverage Delivery System!',
+      appTitle: 'ZX Delivery System'
     };
   }
 
@@ -24,19 +31,19 @@ class App extends React.Component {
       alignItems: 'center',
       justifyContent: 'center',
       minHeight: '100vh',
-      width: '100vw',
+      width: '100vw'
     };
 
     const contentStyle = {
       boxSizing: 'border-box',
       margin: 'auto',
       maxWidth: '960px',
-      padding: '24px',
+      padding: '24px'
     };
-    return (
-      <div className='zx-app' style={style}>
-        <AppHeader title={this.state.appTitle} />
-        <div className='zx-app__content' style={contentStyle}>
+    return(
+      <div className = 'zx-app' style = {style} >
+        <AppHeader title = {this.state.appTitle} />
+        <div className = 'zx-app__content' style = {contentStyle} >
           {this.props.children}
         </div>
         <AppFooter />

@@ -1,13 +1,19 @@
 import React from 'react';
-import { withTheme } from 'theming';
+import {
+  withTheme
+} from 'theming';
 
+type Props = {
+  theme: any,
+  children: any
+};
 
-const AppFooter = ({theme}) => {
+const AppFooter = (props: Props) => {
   const style = {
     width: '100%',
-    background: theme.darkBackgroundColor,
+    background: props.theme.darkBackgroundColor,
     boxSizing: 'border-box',
-    color: theme.lightGrayColor,
+    color: props.theme.lightGrayColor,
     fontSize: '14px',
   };
 
@@ -17,10 +23,12 @@ const AppFooter = ({theme}) => {
     padding: '8px 24px',
   };
 
-  return (
-    <div className='zx-app-footer' style={style}>
-      <div className='zx-app-footer__content' style={contentStyle}>
-        <a href='https://github.com/lucasdesenna' target='_blank'><small>by Lucas de Senna</small></a>
+  return(
+    <div className='zx-app-footer' style={style} >
+      <div className='zx-app-footer__content' style={contentStyle} >
+        <a href='https://github.com/lucasdesenna' rel='noopener noreferrer' target='_blank' >
+          <small>by Lucas de Senna</small>
+        </a >
       </div>
     </div>
   );
