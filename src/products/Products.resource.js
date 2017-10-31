@@ -120,9 +120,13 @@ const ProductsResource = {
     return ProductsResource.getPOCs(lat, lng)
       .then((response) => {
         const firstPOC = response[0];
-        requestOptions.body.variables.id = firstPOC.id;
+        if (firstPOC) {
+          requestOptions.body.variables.id = firstPOC.id;
 
-        return rp(requestOptions);
+          return rp(requestOptions);
+        }
+
+        return [];
       })
       .catch((err) => {
         console.warn(err);

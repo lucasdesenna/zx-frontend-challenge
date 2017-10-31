@@ -3,7 +3,7 @@ import {
   withTheme
 } from 'theming';
 
-import Spinner from '../common/Spinner';
+import Spinner from './Spinner';
 import ProductCard from './ProductCard';
 
 type Props = {

@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  withTheme
-} from 'theming';
-import {
-  withRouter
-} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import ProductsResource from './Products.resource';
 import ProductGrid from './ProductGrid';
@@ -13,8 +8,8 @@ const queryString = require('query-string');
 
 type Props = {
   location: any,
+  history: any,
 };
-
 
 class Products extends React.Component < Props > {
   constructor(props) {
@@ -24,34 +19,40 @@ class Products extends React.Component < Props > {
     };
   }
 
-  componentDidMount() {
-    const self = this;
+  getProducts() {
     const queryParams = queryString.parse(this.props.location.search);
 
-    ProductsResource.getProducts(queryParams.lat, queryParams.lng)
-      .then((response) => {
-        self.setState({
-          products: response
-        });
-      })
-      .catch((err) => {
-        console.warn(err);
-      });
+    return ProductsResource.getProducts(queryParams.lat, queryParams.lng)
+  }
+
+  updateProducts(newProducts) {
+    this.setState({products: newProducts});
+  }
+
+  returnToAddress() {
+    this.props.history.push('/home?error=no_stores');
+  }
+
+  componentWillMount() {
+    this.getProducts().then(((products) => {
+      if(products.length > 0) {
+        this.updateProducts(products);
+      } else {
+        this.returnToAddress();
+      }
+    }).bind(this))
+    .catch((err) => {
+      console.warn(err);
+    });
   }
 
   render() {
-    const theme = this.props.theme;
-
-    const style = {
-
-    };
-
     return(
-      <div className='zx-products' style={style} >
+      <div className='zx-products' >
         <ProductGrid products={this.state.products} />
       </div>
     );
   }
 }
 
-export default withTheme(withRouter(Products));
+export default withRouter(Products);

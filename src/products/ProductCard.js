@@ -5,15 +5,24 @@ import {
 
 type Props = {
   theme: any,
+  product: any,
 };
 
 class ProductCard extends React.Component < Props > {
   constructor(props: Props) {
     super(props);
+
+    this.state = {
+      quantity: 0,
+    };
   }
 
-  componentDidMount() {
-    console.log(this.props.product)
+  addToCart() {
+    this.setState({quantity: Math.min(this.state.quantity + 1, 99) });
+  }
+
+  removeFromCart() {
+    this.setState({quantity: Math.max(this.state.quantity - 1, 0) });
   }
 
   render() {
@@ -27,7 +36,6 @@ class ProductCard extends React.Component < Props > {
       boxShadow: theme.boxShadow,
       display: 'flex',
       flexWrap: 'wrap',
-      height: '232px',
       margin: '16px 8px',
       width: '232px',
     };
@@ -36,47 +44,60 @@ class ProductCard extends React.Component < Props > {
       background: theme.primaryColor,
       borderTopRightRadius: '6px',
       borderTopLeftRadius: '6px',
+      boxSizing: 'border-box',
       color: theme.primaryContrastColor,
-      margin: 0,
-      padding: '24px',
+      margin: '0 0 24px',
+      minHeight: '86px',
+      padding: '24px 16px',
       width: '100%',
     };
+
     const priceStyle = {
-      padding: '8px 24px',
-      textAlign: 'right',
-      width: '100%',
+      borderTop: '#ccc solid 1px',
+      borderBottom: '#ccc solid 1px',
+      boxSizing: 'border-box',
+      flexGrow: 1,
+      height: '48px',
+      lineHeight: '28px',
+      padding: '8px',
+      textAlign: 'center',
     };
+
     const addItemButtonStyle = {
-      borderRadius: '6px',
-      borderTopRightRadius: 0,
-      borderBottomRightRadius: 0,
+      borderTopRightRadius: '6px',
+      borderBottomRightRadius: '6px',
       fontSize: '16px',
       fontWeight: 'bold',
       height: '48px',
-      marginLeft: 'auto',
       marginBottom: '24px',
+      marginRight: '16px',
       padding: '8px',
-      width: '48px',
+      outline: 'none',
+      width: '32px',
     };
+
     const removeItemButtonStyle = {
-      borderRadius: '6px',
-      borderTopLeftRadius: 0,
-      borderBottomLeftRadius: 0,
+      borderTopLeftRadius: '6px',
+      borderBottomLeftRadius: '6px',
       fontSize: '16px',
       fontWeight: 'bold',
       marginBottom: '24px',
-      marginRight: '24px',
+      marginLeft: '16px',
       height: '48px',
       padding: '8px',
-      width: '48px',
+      outline: 'none',
+      width: '32px',
     };
 
     return(
       <div className='zx-product-card' style={style}>
         <h4 className='zx-product-card__title' style={titleStyle}>{product.title}</h4>
-        <div className='zx-product-card__price' style={priceStyle}>R$ {product.price}</div>
-        <button className='zx-product-card__add-item-button' style={addItemButtonStyle}>+</button>
-        <button className='zx-product-card__remove-item-button' style={removeItemButtonStyle}>-</button>
+        <button className='zx-product-card__remove-item-button' style={removeItemButtonStyle} onClick={this.removeFromCart.bind(this)}>-</button>
+        <div className='zx-product-card__price' style={priceStyle}>
+          {this.state.quantity > 0 ? `${this.state.quantity} x ` : ''}
+          R$ {product.price}
+        </div>
+        <button className='zx-product-card__add-item-button' style={addItemButtonStyle} onClick={this.addToCart.bind(this)}>+</button>
       </div>
     );
   }

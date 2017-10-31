@@ -1,8 +1,6 @@
 import React from 'react';
 
-import {
-  AddressLocation
-} from './AddressLocation.type';
+import { AddressLocation } from './AddressLocation.type';
 
 type Props = {
   theme: any,
@@ -15,8 +13,16 @@ class AddressSearchfield extends React.Component < Props > {
   }
 
   render() {
+    const style = {
+      borderRadius: '6px',
+      margin: '24px 16px',
+      minWidth: '40%',
+      padding: '8px 16px',
+      outline: 'none',
+    };
+
     return(
-      <input id='zx-address-searchfield' className='zx-address-searchfield' placeholder='Delivery address'/>
+      <input id='zx-address-searchfield' className='zx-address-searchfield' style={style} placeholder='Delivery address'/>
     );
   }
 

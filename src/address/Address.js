@@ -1,18 +1,17 @@
 import React from 'react';
-import {
-  withTheme
-} from 'theming';
-import {
-  withRouter
-} from 'react-router-dom'
+import { withTheme } from 'theming';
+import { withRouter } from 'react-router-dom'
 
-import {
-  AddressLocation
-} from './AddressLocation.type';
+import { AddressLocation } from './AddressLocation.type';
 import AddressSearchfield from './AddressSearchfield';
+import Greeting from './Greeting';
+import ErrorMessage from './ErrorMessage';
+
+const queryString = require('query-string');
 
 type Props = {
   theme: any,
+  location: any,
   history: any,
 }
 
@@ -27,32 +26,28 @@ class Address extends React.Component < Props > {
     this.props.history.push(path);
   }
 
-  render() {
-    const theme = this.props.theme;
+  getError() {
+    return queryString.parse(this.props.location.search).error
+  }
 
+  render() {
     const style = {
       textAlign: 'center',
     };
 
-    const headingStyle = {
-      textShadow: '0 2px 1px rgba(0, 0, 0, .8)',
-      color: theme.primaryColor,
-      fontSize: '36px',
-      letterSpacing: '1px',
-    };
+    const greeting = (() => {
+      const error = this.getError();
 
-    const callToActionStyle = {
-      fontSize: '24px',
-    };
+      if (error) {
+        return (<ErrorMessage />);
+      }
+
+      return (<Greeting />);
+    })()
 
     return(
       <div className='zx-address' style={style} >
-        <h1 className='zx-address__heading' style={headingStyle} >
-          Our best beverages are waiting for you!
-        </h1>
-        <p className='zx-address__call-to-action' style={callToActionStyle} >
-          Just tell us where to deliver them:
-        </p>
+        {greeting}
         <AddressSearchfield onAddressLocationChanged={this.goToProducts.bind(this)}/>
       </div>
     );
