@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
+  target: 'web',
   entry: {
     app: './src/index.js',
   },
@@ -30,6 +31,11 @@ module.exports = {
       template: 'src/index.html'
     })
   ],
+  node: {
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
+  },
   devtool: 'cheap-module-eval-source-map',
   devServer: {
     contentBase: './dist',

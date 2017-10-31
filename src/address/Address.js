@@ -2,26 +2,29 @@ import React from 'react';
 import {
   withTheme
 } from 'theming';
+import {
+  withRouter
+} from 'react-router-dom'
 
-import AddressSearchfield from './AddressSearchfield'
+import {
+  AddressLocation
+} from './AddressLocation.type';
+import AddressSearchfield from './AddressSearchfield';
 
 type Props = {
   theme: any,
+  history: any,
 }
-
-type State = {
-  googleMapsLocation: any,
-}
-
-const initialState: State = {
-  googleMapsLocation: null,
-};
 
 class Address extends React.Component < Props > {
   constructor(props: Props) {
     super(props);
+  }
 
-    this.state = initialState;
+  goToProducts(addressLocation: AddressLocation) {
+    const path = `/products?lat=${addressLocation.lat}&lng=${addressLocation.lng}`;
+
+    this.props.history.push(path);
   }
 
   render() {
@@ -50,10 +53,10 @@ class Address extends React.Component < Props > {
         <p className='zx-address__call-to-action' style={callToActionStyle} >
           Just tell us where to deliver them:
         </p>
-        <AddressSearchfield googleMapsLocation={this.state.googleMapsLocation}/>
+        <AddressSearchfield onAddressLocationChanged={this.goToProducts.bind(this)}/>
       </div>
     );
   }
 }
 
-export default withTheme(Address);
+export default withTheme(withRouter(Address));

@@ -31,7 +31,7 @@ class App extends React.Component < Props > {
       alignItems: 'center',
       justifyContent: 'center',
       minHeight: '100vh',
-      width: '100vw'
+      width: '100%',
     };
 
     const contentStyle = {
