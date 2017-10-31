@@ -4,8 +4,12 @@
 ```bash
 $ git clone https://github.com/lucasdesenna/zx-frontend-challenge.git
 $ cd ./zx-frontend-challenge
-$ npm i```
+$ npm i
+```
 
-## Run Application Locally
+## Usage
+
+### Run Application Locally
 ```bash
-$ npm start```
+$ npm start
+```
