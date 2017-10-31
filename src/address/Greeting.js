@@ -21,10 +21,10 @@ const Greeting = (props: Props) => {
 
   return (
     <div>
-      <h1 className='zx-address__heading' style={headingStyle} >
+      <h1 className='zx-address__heading' style={headingStyle}>
         Our best beverages are waiting for you!
       </h1>
-      <p className='zx-address__call-to-action' style={callToActionStyle} >
+      <p className='zx-address__call-to-action' style={callToActionStyle}>
         Just tell us where to deliver them:
       </p>
     </div>

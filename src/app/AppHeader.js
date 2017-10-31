@@ -43,10 +43,10 @@ const AppHeader = (props: Props) => {
   };
 
   return (
-    <header className = 'zx-app-header' style={style} >
-      <div className = 'zx-app-header__content' style={contentStyle} >
+    <header className = 'zx-app-header' style={style}>
+      <div className = 'zx-app-header__content' style={contentStyle}>
         <img src={Logo} style={logoStyle} />
-        <h1 style={titleStyle} >{props.title}</h1>
+        <h1 style={titleStyle}>{props.title}</h1>
       </div>
     </header>
   );

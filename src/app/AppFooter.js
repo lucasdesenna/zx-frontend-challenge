@@ -26,8 +26,8 @@ const AppFooter = (props: Props) => {
   };
 
   return(
-    <div className='zx-app-footer' style={style} >
-      <div className='zx-app-footer__content' style={contentStyle} >
+    <div className='zx-app-footer' style={style}>
+      <div className='zx-app-footer__content' style={contentStyle}>
         <a href='https://github.com/lucasdesenna' rel='noopener noreferrer' target='_blank' >
           <small>by Lucas de Senna</small>
         </a >

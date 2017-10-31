@@ -15,7 +15,7 @@ type Props = {
   history: any,
 }
 
-class Address extends React.Component < Props > {
+class Address extends React.Component<Props> {
   constructor(props: Props) {
     super(props);
   }
@@ -46,7 +46,7 @@ class Address extends React.Component < Props > {
     })()
 
     return(
-      <div className='zx-address' style={style} >
+      <div className='zx-address' style={style}>
         {greeting}
         <AddressSearchfield onAddressLocationChanged={this.goToProducts.bind(this)}/>
       </div>

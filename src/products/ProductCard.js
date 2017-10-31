@@ -8,7 +8,7 @@ type Props = {
   product: any,
 };
 
-class ProductCard extends React.Component < Props > {
+class ProductCard extends React.Component<Props> {
   constructor(props: Props) {
     super(props);
 

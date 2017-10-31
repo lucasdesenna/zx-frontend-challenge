@@ -11,7 +11,7 @@ type Props = {
   theme: any,
 };
 
-class ProductGrid extends React.Component < Props > {
+class ProductGrid extends React.Component<Props> {
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -35,8 +35,6 @@ class ProductGrid extends React.Component < Props > {
   }
 
   render() {
-    const theme = this.props.theme;
-
     const style = {
       display: 'flex',
       flexWrap: 'wrap',

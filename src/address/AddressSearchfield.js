@@ -7,7 +7,7 @@ type Props = {
   onAddressLocationChanged: Function,
 };
 
-class AddressSearchfield extends React.Component < Props > {
+class AddressSearchfield extends React.Component<Props> {
   constructor(props: Props) {
     super(props);
   }

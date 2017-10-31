@@ -5,7 +5,6 @@ import './index.css';
 
 import Root from './Root';
 
-ReactDOM.render(<
-    Root / >,
-    document.getElementById('root')
+ReactDOM.render(<Root / >,
+  document.getElementById('root')
 );

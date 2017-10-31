@@ -11,7 +11,7 @@ type Props = {
   history: any,
 };
 
-class Products extends React.Component < Props > {
+class Products extends React.Component<Props> {
   constructor(props) {
     super(props);
     this.state = {

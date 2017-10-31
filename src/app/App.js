@@ -11,7 +11,7 @@ type Props = {
   children: any,
 };
 
-class App extends React.Component < Props > {
+class App extends React.Component<Props> {
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -31,7 +31,7 @@ class App extends React.Component < Props > {
       flexDirection: 'column',
       justifyContent: 'center',
       minHeight: '100vh',
-      padding: '64px 0 32px',
+      padding: '80px 0 32px',
       width: '100%',
     };
 
@@ -43,9 +43,9 @@ class App extends React.Component < Props > {
       width: '100%',
     };
     return(
-      <div className = 'zx-app' style = {style} >
+      <div className = 'zx-app' style = {style}>
         <AppHeader title = {this.state.appTitle} />
-        <div className = 'zx-app__content' style = {contentStyle} >
+        <div className = 'zx-app__content' style = {contentStyle}>
           {this.props.children}
         </div>
         <AppFooter />
