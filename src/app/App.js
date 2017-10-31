@@ -39,7 +39,8 @@ class App extends React.Component < Props > {
       boxSizing: 'border-box',
       margin: 'auto',
       maxWidth: '960px',
-      padding: '24px'
+      padding: '24px',
+      width: '100%',
     };
     return(
       <div className = 'zx-app' style = {style} >
